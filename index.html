@@ -1,33 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time pass</title>
-    <script defer  src="script.js"></script>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-      
-</head>
-<body>
-   
-    <center>
-                                            <p>Most-Welcome</p>
-        <h1 id="ok" style="color: blue;">Ramgopal prajapati </h1>
-    </center>
-    <!-- <div class="o">
-        <form action="/p" method="post">
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Enter Title</label>
-                <input type="text" class="form-control"  name="title" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputText1" class="form-label">Enter Text</label>
-                <input type="text" class="form-control"  name="task" id="exampleInputText1" aria-describedby="emailHelp">
-            </div>
-            <button type="submit" class="btn btn-primary">Create Note</button>
-        </form>
-    </div> -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malwa Institute of Technology </title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin-top: 163px;
+    padding: 0;
+    background-image: url('college.jpg'); /* Change 'background.jpg' to your desired background image */
+    background-size: auto;
+    background-position: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;/* Ensure the blurred background doesn't overflow */
+  }
 
-    <script src="practice.js"></script>
+  #form-container {
+    background-color: rgba(170, 154, 154, 0.91);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border: 3px solid green;
+    margin: 169px;
+     /* Add blur effect to form container */
+  }
+
+  input[type="text"], input[type="number"], select {
+    width: 90%;
+    padding: 20px;
+    margin: 15px;
+    margin-bottom: 16px;
+    border-radius: 17px;
+    border: 1px solid #b1c4a6;
+    font-size: 20px;
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #121010;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  #result {
+    margin-top: 145px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 25px;
+    width: 68%;
+    background-color: #a5c0a5f0;
+    border-radius: 10px;
+    position: absolute;
+    padding: 20px;
+  }
+
+
+  @media screen and (max-width: 480px) {
+    input[type="text"], input[type="number"], select {
+        font-size: 16px;
+        width: 89%;
+        margin-left: -6px;
+      
+    }
+    button {
+      font-size: 18px;
+    }
+    body{
+        font-family: Arial, sans-serif;
+  margin-top: 178px;
+  padding: 0;
+  background-image: url('college.jpg');
+  background-size: contain;
+  background-position: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    }
+    #result{
+        font-size: 17px;
+        margin-top: 135px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #form-container {
+      width: 90%;
+      margin: 10px;
+    }
+  }
+</style>
+</head>
+<body onload="resetForm()">
+    <div id="form-container">
+        <center>
+            <h2>Admission Counseling Department</h2>
+            <h1>Wel Come to -</h1>
+            <h1>Malwa Institute Of Technology Indore</h1>
+            <h3>Enter Student Details for checking % Discount on Fees </h3>
+        </center>
+        <input type="text" id="studentName" placeholder="Student Name">
+        <input type="text" id="fatherName" placeholder="Father's Name">
+        <input type="text" id="motherName" placeholder="Mother's Name">
+        <input type="number" id="percentage" placeholder=" 12th Percentage">
+        <input type="text" id="village" placeholder="Village / City">
+        <input type="number" id="math" placeholder="Mathematics Marks">
+        <input type="number" id="Physics" placeholder="Physics Marks">
+        <input type="number" id="Chemistry" placeholder="Chemistry Marks">
+        <select id="gender">
+            <option value="SelectGender">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        <select id="branch">
+            <option value="SelectBranch">Select Branch</option>
+            <option value="IT">Information Technology</option>
+            <option value="CS">Computer Science</option>
+            <option value="EX">Electronics</option>
+            <option value="ML">Machine Learning</option>
+            <option value="AI">Artificial Intelligence</option>
+            <option value="Other">Other</option>
+
+        </select>
+        <center>
+            <button onclick="calculateDiscount()">Calculate Discount</button>
+        </center>
+        <div id="result"></div> <br><hr><hr><h2><a href="https://Ramgopal-prajapati.github.io/Ramgopal/" target="blank">Created By Ramgopal</a></h2>
+       
+    </div>
+   
+
+<script>
+  function resetForm() {
+    document.getElementById('studentName').value = '';
+    document.getElementById('fatherName').value = '';
+    document.getElementById('motherName').value = '';
+    document.getElementById('percentage').value = '';
+    document.getElementById('village').value = '';
+    document.getElementById('math').value = '';
+    document.getElementById('Physics').value = '';
+    document.getElementById('Chemistry').value = '';
+    document.getElementById('gender').value = 'SelectGender'; // Assuming default value is male
+    document.getElementById('branch').value = 'SelectBranch'; // Assuming default value is IT
+    document.getElementById('result').innerText = '';
+  }
+
+  function calculateDiscount() {
+    var studentName = document.getElementById('studentName').value;
+    var percentage = parseFloat(document.getElementById('percentage').value);
+    var fatherName = document.getElementById('fatherName').value;
+    var motherName = document.getElementById('motherName').value;
+    var village = document.getElementById('village').value;
+    var gender = document.getElementById('gender').value;
+    var branch = document.getElementById('branch').value;
+    var mathMarks = parseInt(document.getElementById('math').value);
+    var physicsMarks = parseInt(document.getElementById('Physics').value);
+    var chemistryMarks = parseInt(document.getElementById('Chemistry').value);
+
+    var totalMarks = mathMarks + physicsMarks + chemistryMarks;
+    var calculatedPercentage = (totalMarks / 300) * 100;
+
+    var admissionFees = 3530;
+    var busFees = 10000;
+
+    var feesPerYear = 0;
+    switch(branch) {
+        case 'IT':
+            feesPerYear = 70000;
+            break;
+        case 'CS':
+            feesPerYear = 80000;
+            break;
+        case 'EX':
+            feesPerYear = 75000;
+            break;
+        case 'ML':
+            feesPerYear = 85000;
+            break;
+        case 'AI':
+            feesPerYear = 90000;
+            break;
+        default:
+            feesPerYear =0;
+    }
+
+    var discount = 0;
+    if (percentage < 60) {
+      // No discount
+      discount = "There is No Discount"
+    } else if (percentage >= 60 && percentage < 70) {
+      discount = 5000;
+    } else if (percentage >= 70 && percentage < 80) {
+      discount = 10000;
+    } else if (percentage >= 80 && percentage < 90) {
+      discount = 12000;
+    } else {
+      discount = 0;
+    }
+
+    var yearlyFeesAfterDiscount = feesPerYear - (discount); // Divide discount by 4 for 4 years
+    var totalFeesAfterDiscount = yearlyFeesAfterDiscount * 4 ;
+
+    var resultText = `Welcome Dear:-       ${studentName}\n 
+    Your percentage is: ${calculatedPercentage.toFixed(2)}%\n \n`;
+    resultText += `Your father's name is:- ${fatherName}\n \n`;
+    resultText += ` mother's name is: ${motherName}\n \n`;
+    resultText += `From: ${village}, Gender is:- ${gender}\n \n`;
+    resultText += `Now Your selected Branch is:- ${branch}\n \n`;
+    resultText += `Discount:- ${discount}\n \n`;
+    resultText += `Yearly Fees After Discount:- ${yearlyFeesAfterDiscount}\n \n`;
+    resultText += `Total Fees After Discount (4 Years):- ${totalFeesAfterDiscount}\n \n`;
+    resultText += `1st Year Fees After Discount:- ${yearlyFeesAfterDiscount}\n \n`;
+    resultText += `Second Year Fees After Discount:- ${yearlyFeesAfterDiscount}\n \n`;
+    resultText += `Third Year Fees After Discount:- ${yearlyFeesAfterDiscount}\n \n`;
+    resultText += `Fourth Year Fees After Discount:- ${yearlyFeesAfterDiscount}\n \n`;
+    resultText += `Admission Fees:- ${admissionFees}\n \n`;
+    resultText += `Bus Fees:- ${busFees}\n \n`;
+
+    document.getElementById('result').innerText = resultText;
+  }
+</script>
+
 </body>
 </html>
