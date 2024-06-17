@@ -158,7 +158,7 @@
 
   function calculateDiscount() {
     var studentName = document.getElementById('studentName').value;
-    var percentage = parseFloat(document.getElementById('percentage').value);
+    var percentage = parseInt(document.getElementById('percentage').value);
     var fatherName = document.getElementById('fatherName').value;
     var motherName = document.getElementById('motherName').value;
     var village = document.getElementById('village').value;
@@ -209,7 +209,7 @@
       discount = 0;
     }
 
-    var yearlyFeesAfterDiscount = feesPerYear - (discount); // Divide discount by 4 for 4 years
+    var yearlyFeesAfterDiscount = feesPerYear - discount; // Divide discount by 4 for 4 years
     var totalFeesAfterDiscount = yearlyFeesAfterDiscount * 4 ;
 
     var resultText = `Welcome Dear:-       ${studentName}\n 
